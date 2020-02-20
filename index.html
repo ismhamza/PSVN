@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="" />
+    <title>Video Social Network by Tcam</title>
+    <!-- Latest compiled and minified CSS -->
+    <!-- <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script> -->
+    <script src="assets/js/flv.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      @font-face {
+        font-family: "pacificacondensedregular";
+        src: url("assets/fonts/pacificacondensedregular.ttf");
+      }
+
+      body {
+        font-family: "pacificacondensedregular";
+      }
+
+      .header h1 {
+        margin-top: 100px;
+        text-align: center;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        font-size: 50px;
+        font-family: "pacificacondensedregular";
+      }
+
+      .form {
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        height: 50px;
+      }
+
+      .btn_live img {
+        width: 100%;
+      }
+
+      .form input[type="text"] {
+        border: 4px solid #eee;
+      }
+
+      .form input[type="text"] {
+        border: 1px solid #ddd;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 50px;
+        padding-left: 52px;
+      }
+
+      .form input[type="text"]:focus {
+        border: 2px solid green;
+      }
+
+      .form input[type="submit"] {
+        position: absolute;
+        left: 15px;
+        width: 30px;
+        height: 30px;
+        top: 6px;
+        border: 0px;
+        background-image: url("assets/images/search.png");
+        background-repeat: no-repeat;
+        background-color: #fff;
+        background-position: center;
+      }
+
+      .header {
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+
+      .video_area {
+        float: left;
+        width: 100%;
+        padding: 80px 0px;
+      }
+
+      .video_thumb {
+        width: 364px;
+        height: 274px;
+        max-width: 364px;
+        max-height: 274px;
+        background: #ffffff00;
+        margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        box-shadow: 0px 15px 19px 1px #777;
+      }
+
+      .btn_live {
+        margin-top: 20px;
+        display: inline-block;
+        margin-left: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        height: 40px;
+        width: 60px;
+      }
+
+      .video_thumb:hover {
+        border-left: 5px solid DEEPSKYBLUE;
+        border-bottom: 5px solid DEEPSKYBLUE;
+        transition: 0.4s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app-wrapper">
+      <div class="psvn-sidebar-wrapper">
+        <div class="psvn-sidebar-logo-wrapper">
+          <h1 class="psvn-sidebar-logo">Video Network</h1>
+        </div>
+        <ul class="psvn-sidebar-list">
+          <li>
+            <a href="#home">
+              <span class="psvn-sidebar-list-item-icon">
+                <img
+                  class="black"
+                  src="assets/images/icons/home.svg"
+                  alt="home"
+                />
+                <img
+                  class="colored"
+                  src="assets/images/icons/home-colored.svg"
+                  alt="home"
+                />
+              </span>
+              <span class="link-name">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#home">
+              <span class="psvn-sidebar-list-item-icon">
+                <img
+                  class="black"
+                  src="assets/images/icons/wifi.svg"
+                  alt="home"
+                />
+                <img
+                  class="colored"
+                  src="assets/images/icons/wifi-colored.svg.svg"
+                  alt="home"
+                />
+              </span>
+              <span class="link-name">Live</span>
+            </a>
+          </li>
+          <li>
+            <a href="#home">
+              <span class="psvn-sidebar-list-item-icon">
+                <img
+                  class="black"
+                  src="assets/images/icons/minus-circle.svg"
+                  alt="home"
+                />
+                <img
+                  class="colored"
+                  src="assets/images/icons/minus-circle-colored.svg"
+                  alt="home"
+                />
+              </span>
+              <span class="link-name">Ended</span>
+            </a>
+          </li>
+          <li>
+            <a href="#home">
+              <span class="psvn-sidebar-list-item-icon">
+                <img
+                  class="black"
+                  src="assets/images/icons/star.svg"
+                  alt="home"
+                />
+                <img
+                  class="colored"
+                  src="assets/images/icons/star-colored.svg"
+                  alt="home"
+                />
+              </span>
+              <span class="link-name">Favourite</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="psvn-main-view">
+        <div class="psvn-header-wrapper">
+          <div class="d-flex align-items-center psvn-header-left-section">
+            <div class="psvn-header-menu-icon">
+              <a class="d-flex" src="#home">
+                <img src="assets/images/icons/menu.svg" alt="menu" />
+              </a>
+            </div>
+            <div class="psvn-header-searchbar-wrapper">
+              <img src="assets/images/icons/search.svg" alt="search" />
+              <input type="search" placeholder="Search" />
+            </div>
+          </div>
+          <div class="d-flex psvn-header-right-section">
+            <ul class="d-flex">
+              <li>
+                <a src="#home">Login</a>
+              </li>
+              <li>
+                <a src="#home">Signup</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="psvn-main-view-wrapper">
+          <div class="psvn-main-view-video-container">
+            <div class="psvn-main-view-video-wrapper">
+              <div class="row">
+                <!-- {/* {videoJsOptions.sources.map((video, i) => { -->
+                <!-- return  -->
+                <div class="col-sm-4">
+                  <div class="psvn-main-view-video-wrapper">
+                    <div
+                      class="psvn-main-view-video d-flex align-items-center justify-content-center"
+                    >
+                      <div id="thumb">
+                        <video
+                          id="videoElement1"
+                          style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
+                          playsinline="playsinline"
+                          preload="auto"
+                          autoplay="{true}"
+                          muted="muted"
+                        ></video>
+                      </div>
+                      <!-- {/*
+                      <img class="play-icon" src="{PlayIcon}" alt="play" />
+                      */} {/* <VideoPlayer {...videoJsOptions} /> */} -->
+                    </div>
+                    <div class="psvn-main-view-video-content-wrapper">
+                      <div class="psvn-tag">Live</div>
+                      <h1>Workshop by Brian Holt</h1>
+                      <p>
+                        This workshop is offered for the beginner in freelance
+                        and professionals as well...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="psvn-main-view-video-wrapper">
+                    <div
+                      class="psvn-main-view-video d-flex align-items-center justify-content-center"
+                    >
+                      <div id="thumb2">
+                        <video
+                          id="videoElement2"
+                          style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
+                          playsinline="playsinline"
+                          preload="auto"
+                          autoplay="true"
+                          muted="muted"
+                        ></video>
+                      </div>
+                      <!-- {/*
+                      <img class="play-icon" src="{PlayIcon}" alt="play" />
+                      */} {/* <VideoPlayer {...videoJsOptions} /> */} -->
+                    </div>
+                    <div class="psvn-main-view-video-content-wrapper">
+                      <div class="psvn-tag">Live</div>
+                      <h1>Workshop by Brian Holt</h1>
+                      <p>
+                        This workshop is offered for the beginner in freelance
+                        and professionals as well...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="psvn-main-view-video-wrapper">
+                    <div
+                      class="psvn-main-view-video d-flex align-items-center justify-content-center"
+                    >
+                      <div id="thumb3">
+                        <video
+                          id="videoElement3"
+                          style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
+                          playsinline="playsinline"
+                          preload="auto"
+                          autoplay="true"
+                          muted="muted"
+                        ></video>
+                      </div>
+                      <!-- <img class="play-icon" src={PlayIcon} alt="play" />
+							 <VideoPlayer {...videoJsOptions} /> -->
+                    </div>
+                    <div class="psvn-main-view-video-content-wrapper">
+                      <div class="psvn-tag">Live</div>
+                      <h1>Workshop by Brian Holt</h1>
+                      <p>
+                        This workshop is offered for the beginner in freelance
+                        and professionals as well...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="psvn-main-view-video-wrapper">
+                    <div
+                      class="psvn-main-view-video d-flex align-items-center justify-content-center"
+                    >
+                      <div id="thumb4">
+                        <video
+                          id="videoElement4"
+                          style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
+                          playsinline="playsinline"
+                          preload="auto"
+                          autoplay="true"
+                          muted="muted"
+                        ></video>
+                      </div>
+                      <!-- {/*
+                      <img class="play-icon" src="{PlayIcon}" alt="play" />
+                      */} {/* <VideoPlayer {...videoJsOptions} /> */} -->
+                    </div>
+                    <div class="psvn-main-view-video-content-wrapper">
+                      <div class="psvn-tag">Live</div>
+                      <h1>Workshop by Brian Holt</h1>
+                      <p>
+                        This workshop is offered for the beginner in freelance
+                        and professionals as well...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- {/* ); })} */} -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var first_states = {
+        videoElement1: true,
+        videoElement2: true,
+        videoElement3: true,
+        videoElement4: true
+      };
+      var videoElement1 = document.getElementById("videoElement1");
+      window.flvPlayer = flvjs.createPlayer({
+        type: "flv",
+        url: "ws://157.230.255.63:8080/live/testkey.flv"
+      });
+      window.flvPlayer.attachMediaElement(videoElement1);
+      window.flvPlayer.load();
+      window.flvPlayer.play();
+
+      var videoElement2 = document.getElementById("videoElement2");
+      window.flvPlayer2 = flvjs.createPlayer({
+        type: "flv",
+        url: "ws://157.230.255.63:8080/live/key2.flv"
+      });
+      window.flvPlayer2.attachMediaElement(videoElement2);
+      window.flvPlayer2.load();
+      window.flvPlayer2.play();
+
+      var videoElement3 = document.getElementById("videoElement3");
+      window.flvPlayer3 = flvjs.createPlayer({
+        type: "flv",
+        url: "ws://157.230.255.63:8080/live/key3.flv"
+      });
+      window.flvPlayer3.attachMediaElement(videoElement3);
+      window.flvPlayer3.load();
+      window.flvPlayer3.play();
+
+      var videoElement4 = document.getElementById("videoElement4");
+      window.flvPlayer4 = flvjs.createPlayer({
+        type: "flv",
+        url: "ws://157.230.255.63:8080/live/key4.flv"
+      });
+      window.flvPlayer4.attachMediaElement(videoElement4);
+      window.flvPlayer4.load();
+      window.flvPlayer4.play();
+
+      var thumb1 = document.getElementById("thumb4");
+      thumb1.style.cursor = "pointer";
+      thumb1.onclick = function() {
+        first_states[thumb1.id] = false;
+        videoElement1.muted = false;
+      };
+      thumb1.addEventListener("mouseover", function() {
+        videoElement1.muted = false;
+      });
+      thumb1.addEventListener("mouseout", function() {
+        videoElement1.muted = true;
+      });
+
+      var thumb2 = document.getElementById("thumb4");
+      thumb2.style.cursor = "pointer";
+      thumb2.onclick = function() {
+        first_states[thumb2.id] = false;
+        videoElement2.muted = false;
+      };
+      thumb2.addEventListener("mouseover", function() {
+        videoElement4.muted = false;
+      });
+      thumb2.addEventListener("mouseout", function() {
+        videoElement4.muted = true;
+      });
+
+      var thumb3 = document.getElementById("thumb4");
+      thumb3.style.cursor = "pointer";
+      thumb3.onclick = function() {
+        first_states[thumb3.id] = false;
+        videoElement3.muted = false;
+      };
+      thumb3.addEventListener("mouseover", function() {
+        videoElement3.muted = false;
+      });
+      thumb3.addEventListener("mouseout", function() {
+        videoElement3.muted = true;
+      });
+
+      var thumb4 = document.getElementById("thumb4");
+      thumb4.style.cursor = "pointer";
+      thumb4.onclick = function() {
+        first_states[thumb4.id] = false;
+        videoElement4.muted = false;
+      };
+      thumb4.addEventListener("mouseover", function() {
+        videoElement4.muted = false;
+      });
+      thumb4.addEventListener("mouseout", function() {
+        videoElement4.muted = true;
+      });
+
+      var intervalID = window.setInterval(myCallback, 180000);
+
+      function myCallback() {
+        window.flvPlayer.destroy();
+
+        var videoElement1 = document.getElementById("videoElement1");
+        window.flvPlayer = flvjs.createPlayer({
+          type: "flv",
+          url: "ws://157.230.255.63:8080/live/testkey.flv"
+        });
+        window.flvPlayer.attachMediaElement(videoElement1);
+        window.flvPlayer.load();
+        window.flvPlayer.play();
+
+        window.flvPlayer2.destroy();
+
+        var videoElement2 = document.getElementById("videoElement2");
+        window.flvPlayer2 = flvjs.createPlayer({
+          type: "flv",
+          url: "ws://157.230.255.63:8080/live/key2.flv"
+        });
+        window.flvPlayer2.attachMediaElement(videoElement2);
+        window.flvPlayer2.load();
+        window.flvPlayer2.play();
+
+        window.flvPlayer3.destroy();
+        var videoElement3 = document.getElementById("videoElement3");
+        window.flvPlayer3 = flvjs.createPlayer({
+          type: "flv",
+          url: "ws://157.230.255.63:8080/live/key3.flv"
+        });
+        window.flvPlayer3.attachMediaElement(videoElement3);
+        window.flvPlayer3.load();
+        window.flvPlayer3.play();
+
+        window.flvPlayer4.destroy();
+        var videoElement4 = document.getElementById("videoElement4");
+        window.flvPlayer4 = flvjs.createPlayer({
+          type: "flv",
+          url: "ws://157.230.255.63:8080/live/key4.flv"
+        });
+        window.flvPlayer4.attachMediaElement(videoElement4);
+        window.flvPlayer4.load();
+        window.flvPlayer4.play();
+      }
+    </script>
+  </body>
+</html>
