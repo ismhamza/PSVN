@@ -645,8 +645,8 @@
         </div>
       </div>
     </div>
-    <script
-    src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/mobileDetect.js"></script>
     <script>
       var first_states = {
         videoElement1: true,
@@ -789,31 +789,6 @@
         window.flvPlayer4.load();
         window.flvPlayer4.play();
       }
-    </script>
-    <script>
-      $(document).ready(function(){
-        var windowWidth=$(window).width();
-        $(window).resize(function(){
-          // if (windowWidth >= 1024) {  
-          //   $(".psvn-header-menu-icon").click(function(){  
-          //       $(".app-wrapper").toggleClass("icon-nav");  
-          //   });
-          // }
-          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            $('.backdrop').click(function() {
-              $('.backdrop').toggleClass('show');  
-              $(".psvn-sidebar-wrapper").css('transform','translateX(-500px)');
-            });
-
-            $(".psvn-sidebar-wrapper").addClass('mobile');
-            $(".psvn-main-view").addClass('mobile');
-            $(".psvn-header-menu-icon").click(function(){
-                $('.backdrop').toggleClass('show');  
-                $(".psvn-sidebar-wrapper").css({'transform': 'translateX(0)','z-index': '3'});
-            });  
-          }         
-        });    
-      });
     </script>
   </body>
 </html>
