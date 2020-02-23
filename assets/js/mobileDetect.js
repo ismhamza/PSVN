@@ -14,13 +14,10 @@ $(document).ready(function() {
           $('.backdrop').toggleClass('show');  
           $(".psvn-sidebar-wrapper").css('transform','translateX(-500px)');
         });
-
         $(".psvn-header-menu-icon").click(function(){
-            if(!$('.backdrop').hasClass('show')) {
-                $('.backdrop').addClass('show');  
-            } else {
-                $('.backdrop').removeClass('show');  
-            }
+                $('.backdrop').toggleClass('show');
+        });
+        $(".psvn-header-menu-icon").click(function(){
             $(".psvn-sidebar-wrapper").css({'transform': 'translateX(0)','z-index': '3'});
         });  
       }         
