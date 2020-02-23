@@ -17,7 +17,8 @@ function mobileScreenDetect() {
           $('.backdrop').toggleClass('show');
           $(".psvn-sidebar-wrapper").css({'transform': 'translateX(0)','z-index': '3'});
       });  
-    }         
+    }
+    $('body').css('display','block');         
   }
   mobileScreenDetect();
 $(document).ready(function() {
