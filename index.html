@@ -186,7 +186,19 @@
       .justify-content-center {
         justify-content: center !important;
       }
-
+      .thumb {
+        width: 100%;
+      }
+      .backdrop {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.1);
+        z-index: 3;
+      }
       .psvn-header-searchbar-wrapper {
         position: relative;
       }
@@ -247,6 +259,7 @@
       }
       /* Default Aside CSS */
       .psvn-sidebar-logo-wrapper .psvn-sidebar-logo {
+        font-size: 2.2rem;
         padding: 1.6rem;
         margin-bottom: 3.5rem;
         color: var(--primary-theme-color);
@@ -352,14 +365,28 @@
         font-size: 13px;
         font-weight: 700;
       }
+      .psvn-sidebar-wrapper.mobile {
+        transform: translateX(-500px);
+        transition: 0.1s ease-in-out;
+      }
+      .psvn-main-view.mobile {
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background-color: #f9f9f9;
+      }
+      .backdrop.show {
+        display: block;
+      }
     </style>
   </head>
 
   <body>
     <div class="app-wrapper">
+      <div class="backdrop"></div>
       <div class="psvn-sidebar-wrapper">
         <div class="psvn-sidebar-logo-wrapper">
-          <h1 class="psvn-sidebar-logo">Video Network</h1>
+          <h1 class="psvn-sidebar-logo">Video Social Network</h1>
         </div>
         <ul class="psvn-sidebar-list">
           <li>
@@ -430,6 +457,40 @@
               <span class="link-name">Favourite</span>
             </a>
           </li>
+          <li>
+            <a href="#home">
+              <span class="psvn-sidebar-list-item-icon">
+                <img
+                  class="black"
+                  src="./assets/images/icons/png/question.png"
+                  alt="home"
+                />
+                <img
+                  class="colored"
+                  src="./assets/images/icons/png/question-colored.png"
+                  alt="home"
+                />
+              </span>
+              <span class="link-name">How it works</span>
+            </a>
+          </li>
+          <li>
+            <a href="#home">
+              <span class="psvn-sidebar-list-item-icon">
+                <img
+                  class="black"
+                  src="./assets/images/icons/png/blog.png"
+                  alt="home"
+                />
+                <img
+                  class="colored"
+                  src="./assets/images/icons/png/blog-colored.png"
+                  alt="home"
+                />
+              </span>
+              <span class="link-name">Blog</span>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="psvn-main-view">
@@ -462,18 +523,18 @@
               <div class="row">
                 <!-- {/* {videoJsOptions.sources.map((video, i) => { -->
                 <!-- return  -->
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                   <div class="psvn-main-view-video-wrapper">
                     <div
                       class="psvn-main-view-video d-flex align-items-center justify-content-center"
                     >
-                      <div id="thumb">
-                        <video
+                      <div id="thumb" class="thumb">
+                        <video controls
                           id="videoElement1"
                           style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
                           playsinline="playsinline"
                           preload="auto"
-                          autoplay="true"
+                          autoplay="false"
                           muted="muted"
                         ></video>
                       </div>
@@ -491,18 +552,18 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                   <div class="psvn-main-view-video-wrapper">
                     <div
                       class="psvn-main-view-video d-flex align-items-center justify-content-center"
                     >
-                      <div id="thumb2">
-                        <video
+                      <div id="thumb2" class="thumb">
+                        <video controls
                           id="videoElement2"
                           style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
                           playsinline="playsinline"
                           preload="auto"
-                          autoplay="true"
+                          autoplay="false"
                           muted="muted"
                         ></video>
                       </div>
@@ -520,18 +581,18 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                   <div class="psvn-main-view-video-wrapper">
                     <div
                       class="psvn-main-view-video d-flex align-items-center justify-content-center"
                     >
-                      <div id="thumb3">
-                        <video
+                      <div id="thumb3" class="thumb">
+                        <video controls
                           id="videoElement3"
                           style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
                           playsinline="playsinline"
                           preload="auto"
-                          autoplay="true"
+                          autoplay="false"
                           muted="muted"
                         ></video>
                       </div>
@@ -548,18 +609,18 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                   <div class="psvn-main-view-video-wrapper">
                     <div
                       class="psvn-main-view-video d-flex align-items-center justify-content-center"
                     >
-                      <div id="thumb4">
-                        <video
+                      <div id="thumb4" class="thumb">
+                        <video controls
                           id="videoElement4"
                           style="max-width: 100%; max-height: 100%; width: 100%; height: 100%;"
                           playsinline="playsinline"
                           preload="auto"
-                          autoplay="true"
+                          autoplay="false"
                           muted="muted"
                         ></video>
                       </div>
@@ -584,6 +645,8 @@
         </div>
       </div>
     </div>
+    <script
+    src="./assets/js/jquery.min.js"></script>
     <script>
       var first_states = {
         videoElement1: true,
@@ -726,6 +789,31 @@
         window.flvPlayer4.load();
         window.flvPlayer4.play();
       }
+    </script>
+    <script>
+      $(document).ready(function(){
+        var windowWidth=$(window).width();
+        $(window).resize(function(){
+          // if (windowWidth >= 1024) {  
+          //   $(".psvn-header-menu-icon").click(function(){  
+          //       $(".app-wrapper").toggleClass("icon-nav");  
+          //   });
+          // }
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $('.backdrop').click(function() {
+              $('.backdrop').toggleClass('show');  
+              $(".psvn-sidebar-wrapper").css('transform','translateX(-500px)');
+            });
+
+            $(".psvn-sidebar-wrapper").addClass('mobile');
+            $(".psvn-main-view").addClass('mobile');
+            $(".psvn-header-menu-icon").click(function(){
+                $('.backdrop').toggleClass('show');  
+                $(".psvn-sidebar-wrapper").css({'transform': 'translateX(0)','z-index': '3'});
+            });  
+          }         
+        });    
+      });
     </script>
   </body>
 </html>
