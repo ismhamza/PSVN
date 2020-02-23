@@ -19,8 +19,8 @@ function mobileScreenDetect() {
       });  
     }         
   }
+  mobileScreenDetect();
 $(document).ready(function() {
-    mobileScreenDetect();
     $(window).resize(
         mobileScreenDetect
     );    
