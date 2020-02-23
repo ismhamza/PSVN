@@ -16,7 +16,11 @@ $(document).ready(function() {
         });
 
         $(".psvn-header-menu-icon").click(function(){
-            $('.backdrop').toggleClass('show');  
+            if(!$('.backdrop').hasClass('show')) {
+                $('.backdrop').addClass('show');  
+            } else {
+                $('.backdrop').removeClass('show');  
+            }
             $(".psvn-sidebar-wrapper").css({'transform': 'translateX(0)','z-index': '3'});
         });  
       }         
