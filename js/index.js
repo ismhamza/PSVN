@@ -19,6 +19,11 @@ $(function() {
         return pass === confirm_pass
     }
 
+    // Logout
+    $("#psvn-logout").click(function(e) {
+        this.localStorage.setItem('user', null);
+        $(location).attr('href','./login.html');
+    });
     // Sign Up
     $("#psvn-signup-form").submit(function(e) {
         e.preventDefault();
