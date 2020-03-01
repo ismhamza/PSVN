@@ -648,9 +648,10 @@
     </div>
     <script src="./assets/js/jquery.min.js"></script>
     <script>
-      $( document ).ready(function() {
-      let initialUrl = '/login.html';
-      let loggedInUrl = '/';
+      $( document ).ready(function(e) {
+        e.preventDefault();
+        let initialUrl = '/login.html';
+        let loggedInUrl = '/';
       
       if(localStorage.getItem('user') === null) {
           $(location).attr('href',initialUrl);
