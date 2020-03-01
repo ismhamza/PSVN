@@ -1,11 +1,20 @@
 $(function() {
+    let initialUrl = '/login.html';
+    let loggedInUrl = '/login.html';
+    
+    if(localStorage.getItem('user') === null) {
+        $(location).attr('href',initialUrl);
+    } else {
+        $(location).attr('href',loggedInUrl);
+    }
+
     function onLogin(email, pass) {
-        var url = "/index.html";
+        let indexUrl = "/index.html";
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = users[users.findIndex(user => user.email === email && user.password === pass)];
         if(userExists) {
-            $(location).attr('href',url);
-
+            $(location).attr('href',indexUrl);
+            this.localStorage.setItem('user', userExists.email)
         } else {
             $("#message-wrapper").addClass("alert alert-danger");
             $("#message-wrapper").text("Wrong email or password");
