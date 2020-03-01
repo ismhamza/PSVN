@@ -41,6 +41,7 @@ $(function() {
             localStorage.setItem('users', JSON.stringify(users));
             $("#message-wrapper").addClass("alert alert-success");
             $("#message-wrapper").text("Account Has been created successfully!");
+            $(location).attr('href','/login.html');
         }
     });
 
