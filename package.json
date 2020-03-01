@@ -1,0 +1,19 @@
+{
+  "name": "video-private-social-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismhamza/PSVN.git"
+  },
+  "author": "Syed Muhammad Hamza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ismhamza/PSVN/issues"
+  },
+  "homepage": "https://github.com/ismhamza/PSVN#readme"
+}
