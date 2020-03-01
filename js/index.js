@@ -1,13 +1,4 @@
 $(function() {
-    let initialUrl = '/login.html';
-    let loggedInUrl = '/login.html';
-    
-    if(localStorage.getItem('user') === null) {
-        $(location).attr('href',initialUrl);
-    } else {
-        $(location).attr('href',loggedInUrl);
-    }
-
     function onLogin(email, pass) {
         let indexUrl = "/index.html";
         let users = JSON.parse(localStorage.getItem('users')) || [];

@@ -647,6 +647,18 @@
       </div>
     </div>
     <script src="./assets/js/jquery.min.js"></script>
+    <script>
+      $( document ).ready(function() {
+      let initialUrl = '/login.html';
+      let loggedInUrl = '/';
+      
+      if(localStorage.getItem('user') === null) {
+          $(location).attr('href',initialUrl);
+      } else {
+          $(location).attr('href',loggedInUrl);
+      }
+      });
+    </script>
     <script src="./assets/js/flv.min.js"></script>
     <script src="./assets/js/mobileDetect.js"></script>
     <script>
