@@ -1,6 +1,6 @@
 $(function() {
     function onLogin(email, pass) {
-        var url = "videosocialnetwork.com/index.html";
+        var url = "/index.html";
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = users[users.findIndex(user => user.email === email && user.password === pass)];
         if(userExists) {
