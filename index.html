@@ -648,16 +648,18 @@
     </div>
     <script src="./assets/js/jquery.min.js"></script>
     <script>
-      $( document ).ready(function(e) {
-        e.preventDefault();
+      function authGuard() {
         let initialUrl = '/login.html';
         let loggedInUrl = '/';
       
-      if(localStorage.getItem('user') === null) {
-          $(location).attr('href',initialUrl);
-      } else {
-          $(location).attr('href',loggedInUrl);
+        if(localStorage.getItem('user') === null) {
+            $(location).attr('href',initialUrl);
+        } else {
+            $(location).attr('href',loggedInUrl);
+        }
       }
+      $( document ).ready(function(e) {
+        authGuard
       });
     </script>
     <script src="./assets/js/flv.min.js"></script>
