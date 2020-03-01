@@ -1,6 +1,6 @@
 $(function() {
     function onLogin(email, pass) {
-        let indexUrl = "/index.html";
+        let indexUrl = "/";
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = users[users.findIndex(user => user.email === email && user.password === pass)];
         if(userExists) {
