@@ -21,7 +21,7 @@ $(function() {
 
     // Logout
     $("#psvn-logout").click(function(e) {
-        localStorage.setItem('user', 'null');
+        localStorage.removeItem('user');
         $(location).attr('href','./login.html');
     });
     // Sign Up
