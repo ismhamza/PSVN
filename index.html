@@ -650,7 +650,7 @@
     <script>
       function authGuard() {
         let initialUrl = '/login.html';
-        let loggedInUrl = '/';
+        let loggedInUrl = '/index.html';
       
         if(localStorage.getItem('user') === null) {
             $(location).attr('href',initialUrl);
