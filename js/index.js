@@ -5,7 +5,7 @@ $(function() {
         let userExists = users[users.findIndex(user => user.email === email && user.password === pass)];
         if(userExists) {
             $(location).attr('href',indexUrl);
-            this.localStorage.setItem('user', userExists.email)
+            localStorage.setItem('user', userExists.email)
         } else {
             $("#message-wrapper").addClass("alert alert-danger");
             $("#message-wrapper").text("Wrong email or password");
@@ -21,7 +21,7 @@ $(function() {
 
     // Logout
     $("#psvn-logout").click(function(e) {
-        this.localStorage.setItem('user', 'null');
+        localStorage.setItem('user', 'null');
         $(location).attr('href','./login.html');
     });
     // Sign Up
