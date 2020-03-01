@@ -650,14 +650,10 @@
     <script>
       function authGuard() {
         let initialUrl = '/login.html';
-        let loggedInUrl = '/index.html';
       
         if(localStorage.getItem('user') === null) {
             $(location).attr('href',initialUrl);
-        } else {
-            $(location).attr('href',loggedInUrl);
-            return
-        }
+        } 
       }
       authGuard();
       $( document ).ready(function(e) {
