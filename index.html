@@ -379,6 +379,9 @@
     .backdrop.show {
     display: block;
     }
+    .psvn-logout {
+      display: none;
+    }
     </style>
   </head>
 
@@ -508,11 +511,7 @@
             </div>
           </div>
           <div class="d-flex psvn-header-right-section">
-            <ul class="d-flex">
-              <li>
-                <a id="psvn-logout">Logout</a>
-              </li>
-            </ul>
+            <ul class="psvn-header-right-section-ul d-flex"></ul>
           </div>
         </div>
         <div class="psvn-main-view-wrapper">
@@ -645,12 +644,17 @@
     </div>
     <script src="./assets/js/jquery.min.js"></script>
     <script>
-      function authGuard() {
-        let initialUrl = '/login.html';
-      
-        if(localStorage.getItem('user') === null) {
-            $(location).attr('href',initialUrl);
-        } 
+      function authGuard() {      
+        if(localStorage.getItem('user') !== null) {
+            $(".psvn-signup").css('display','none');
+            $(".psvn-signin").css('display','none');
+            $(".psvn-header-right-section-ul").append("<li><a class='psvn-login-name'></a></li>");
+            $('.psvn-login-name').text(localStorage.getItem('user'));
+            $(".psvn-header-right-section-ul").append("<li><a id='psvn-logout'>Logout</a></li>");
+        } else {
+          $(".psvn-header-right-section-ul").append("<li class='psvn-signin'><a href='./login.html'>Login</a></li>");
+          $(".psvn-header-right-section-ul").append("<li class='psvn-signup'><a href='./sign-up.html'>Sign Up</a></li>");
+        }
       }
       authGuard();
       $( document ).ready(function(e) {
